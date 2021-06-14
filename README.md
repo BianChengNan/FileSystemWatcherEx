@@ -57,7 +57,7 @@ fileWatcherEx.Stop();
 
 this demo project will monitor program directory recursively, and display changed .bmp file.
 
- ![result](E:\working\TestMonitorImage\result.gif)
+ ![result](https://github.com/BianChengNan/FileSystemWatcherEx/blob/master/result.gif)
 
  
 
