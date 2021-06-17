@@ -420,7 +420,7 @@ public class FileSystemWatcherEx
             FileStream stream = null;
             try
             {
-                stream = File.Open(e.FullPath, FileMode.Open, FileAccess.ReadWrite, (FileShare)0xff);
+                stream = File.Open(e.FullPath, FileMode.Open, FileAccess.ReadWrite, FileShare.ReadWrite | FileShare.Delete | FileShare.Inheritable);
                 break;
             }
             catch (IOException ex)
@@ -451,9 +451,9 @@ public class FileSystemWatcherEx
                     break;
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                System.Diagnostics.Debug.WriteLine(string.Format("[inner] fail to open file [{0}], unkown exception!", e.FullPath));
+                System.Diagnostics.Debug.WriteLine(string.Format("[inner] fail to open file [{0}], unexpected exception {1}!", e.FullPath, ex));
                 break;
             }
             finally
